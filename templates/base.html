@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ app_name }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="backdrop"></div>
+  <header class="site-header">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" />
+      <span>{{ app_name }}</span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/status" class="status-link">Status JSON</a>
+      <a href="https://docker.com" target="_blank" rel="noreferrer">Docker</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">© {{ app_name }} — Powered by Flask & Docker</footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

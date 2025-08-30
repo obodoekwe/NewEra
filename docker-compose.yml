@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    image: newera:1.0
+    container_name: newera-web
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.example
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    networks:
+      - appnet
+networks:
+  appnet:
+    driver: bridge

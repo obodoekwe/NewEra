@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <h1>New Era Class 24</h1>
+  <p class="tag">A sleek Flask app for learning Docker builds, images, and containers.</p>
+  <div class="cta">
+    <a class="btn" href="/status">View Live Status JSON</a>
+    <button id="fetch-status" class="btn outline">Fetch Status Inline</button>
+  </div>
+</section>
+
+<section class="grid">
+  <article class="card">
+    <h3>Environment</h3>
+    <ul>
+      <li><strong>APP_ENV:</strong> {{ app_env }}</li>
+      <li><strong>LOG_LEVEL:</strong> {{ log_level }}</li>
+    </ul>
+  </article>
+  <article class="card" id="status-card">
+    <h3>Live Status</h3>
+    <pre id="status-output">Click “Fetch Status Inline”.</pre>
+  </article>
+  <article class="card">
+    <h3>Try an Echo</h3>
+    <form id="echo-form">
+      <input type="text" name="msg" placeholder="Type a message" />
+      <button class="btn" type="submit">Send</button>
+    </form>
+    <pre id="echo-output"></pre>
+  </article>
+</section>
+{% endblock %}
